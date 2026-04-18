@@ -1,24 +1,31 @@
-# Simple Calculator
+def add(a, b):
+    return a + b
 
-# take input from user
-num1 = float(input("Enter first number: "))
-op = input("Enter operator (+, -, *, /): ")
-num2 = float(input("Enter second number: "))
+def subtract(a, b):
+    return a - b
 
-# perform operation
-if op == "+":
-    result = num1 + num2
-elif op == "-":
-    result = num1 - num2
-elif op == "*":
-    result = num1 * num2
-elif op == "/":
-    if num2 != 0:
-        result = num1 / num2
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    if b == 0:
+        raise ValueError("Cannot divide by zero")
+    return a / b
+
+
+if __name__ == "__main__":
+    print("Simple Calculator")
+    a = float(input("Enter first number: "))
+    b = float(input("Enter second number: "))
+    op = input("Choose operation (+, -, , /): ")
+
+    if op == "+":
+        print(add(a, b))
+    elif op == "-":
+        print(subtract(a, b))
+    elif op == "":
+        print(multiply(a, b))
+    elif op == "/":
+        print(divide(a, b))
     else:
-        result = "Error! Division by zero"
-else:
-    result = "Invalid operator"
-
-# display result
-print("Result:", result)
+        print("Invalid operation")
